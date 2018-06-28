@@ -1,0 +1,21 @@
+﻿@model CheeseMVC.ViewModels.ViewMenuViewModel
+
+@{
+    ViewBag.Title = Model.Menu.Name;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<ul>
+    @foreach (var CheeseMenu in Model.Items)
+    {
+        <li>@CheeseMenu.Cheese.Name</li>
+    }
+</ul>
+
+@if (Model.Items.Count == 0)
+{
+    <p><i>You Aint Got None Menu Cheeze Yet</i></p>
+}
+
+    <p><a asp-controller="Menu" asp-action="AddItem" asp-route-id="@Model.Menu.ID">Add Item</a></p>
